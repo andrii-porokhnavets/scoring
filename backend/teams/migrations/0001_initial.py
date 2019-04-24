@@ -8,14 +8,17 @@ class Migration(migrations.Migration):
     initial = True
 
     dependencies = [
+        ('players', '0001_initial'),
     ]
 
     operations = [
         migrations.CreateModel(
-            name='Player',
+            name='Team',
             fields=[
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('nickname', models.CharField(max_length=60)),
+                ('name', models.CharField(max_length=60)),
+                ('is_win', models.BooleanField()),
+                ('players', models.ManyToManyField(to='players.Player')),
             ],
         ),
     ]
