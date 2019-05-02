@@ -5,3 +5,6 @@ class Team(models.Model):
     name = models.CharField(max_length=60)
     players = models.ManyToManyField('players.Player')
     is_win = models.fields.BooleanField()
+
+    def __str__(self):
+        return self.name
