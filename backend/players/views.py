@@ -1,10 +1,8 @@
-from django.shortcuts import render
-from rest_framework import generics
-from players.models import Player
-from players.serializers import PlayerSerializer
-import pymongo
+from rest_framework import viewsets
+from .models import Player
+from .serializers import PlayerSerializer
 
 
-class PlayerListCreate(generics.ListCreateAPIView):
+class PlayerViewSet(viewsets.ModelViewSet):
     queryset = Player.objects.all()
     serializer_class = PlayerSerializer
