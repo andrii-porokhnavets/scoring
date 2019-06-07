@@ -1,14 +1,8 @@
-import { TEST } from '../constants/action-types';
+import { combineReducers } from 'redux';
+import games from './gamesReducer'
 
-const initialState = {
-    test: false
-};
-
-function rootReducer(state = initialState, action) {
-    if (action.type === TEST) {
-        return Object.assign({}, state, action.payload);
-    }
-    return state;
-}
+const rootReducer = () => combineReducers(
+    games
+);
 
 export default rootReducer;
